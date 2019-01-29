@@ -21,6 +21,5 @@ class Simulator(object):
 		print('Simulation Complete')
 
 		print(self.agent.num_pulls)
-
-		print('Optimal arm =' ,np.argmax(self.agent.average_rewards))
 		print('Actual Optimal arm =', self.env.optimal_arm)
+		print('Environments arm distribution =',self.env.arm_probabilities)
