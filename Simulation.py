@@ -13,9 +13,14 @@ class Simulator(object):
 
 		for x in range(num_trials):
 			action=self.agent.act()
+			
 			reward,regret=self.env.step(action)
+			
 			self.agent.feedback(action,reward)
 
 		print('Simulation Complete')
 
 		print(self.agent.num_pulls)
+
+		print('Optimal arm =' ,np.argmax(self.agent.average_rewards))
+		print('Actual Optimal arm =', self.env.optimal_arm)

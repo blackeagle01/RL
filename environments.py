@@ -19,7 +19,7 @@ class Bandit(Environment):
 		if self.distribution=='bernoulli':
 			self.arm_probabilities=np.random.random(size=[self.num_arms])
 
-		self.optimal_arm=np.max(self.arm_probabilities)
+		self.optimal_arm=np.argmax(self.arm_probabilities)
 
 	def step(self,arm): 
 		regret = self.optimal_arm-arm
