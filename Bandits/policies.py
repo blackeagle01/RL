@@ -62,12 +62,10 @@ class EpsilonGreedy(Greedy):
  		self.decay_value=0.001
 
  	def act(self):
- 		average_rewards=np.divide(self.cumulative_rewards,self.num_pulls,where=(self.num_pulls>0))
- 		greedy_action=np.argmax(average_rewards)
  		random_action=np.random.randint(low=0,high=self.num_arms)
 
  		if np.random.random()>self.epsilon:
- 			action = greedy_action
+ 			action = super().act()
  		else:
  			action = random_action
  		if self.epsilon>self.epsilon_min:
