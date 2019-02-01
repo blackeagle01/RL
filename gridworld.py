@@ -76,8 +76,16 @@ class Gridworld(Environment):
     def step(self,action):
         x=self.current_state
         newstate=self.transition(self.current_state,action)
-        self.current_state=newstate
         
+        
+        if newstate in self.terminal_states:
+            self.episode_over=True
+        self.current_state=newstate
+
+
+
+
+
         if x in self.terminal_states:
             reward=0
             
